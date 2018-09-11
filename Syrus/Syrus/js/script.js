@@ -55,17 +55,8 @@ realtime.on('update', function() {
 	    	}
 	    });
 	map.panTo(new L.LatLng(latitud.value,longitud.value));
-	var comparacion = [];
-	comparacion.push ([latitud.value,longitud.value]);
-	for (i=1; i < comparacion.length ; i++) {
-	    console.log(comparacion[i].includes(latlng[i]));
-	}
-	if (comparacion != latlng) {
-			latlng.push([latitud.value,longitud.value]);
-	}
-	console.log(comparacion);
-	console.log(latlng);
-	/*var polyline = L.polyline(latlng, {color: 'red'}).addTo(map);*/
+	latlngs.push ([parseFloat(latitud.value),parseFloat(longitud.value)]);
+	var polyline = L.polyline(latlng, {color: 'blue',weight: 1, smoothFactor: 1}).addTo(map);
 });
 
 
